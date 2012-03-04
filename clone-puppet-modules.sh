@@ -10,5 +10,5 @@ sudo -u puppet git clone git://github.com/soluvas/puppet-jbossas.git jbossas
 sudo -u puppet git clone git://github.com/soluvas/puppet-nexus.git nexus
 sudo -u puppet git clone git://github.com/soluvas/puppet-neo4j.git neo4j
 sudo -u puppet git clone git://github.com/soluvas/puppet-apache.git apache
-sudo -u puppet git clone git://github.com/soluvas/puppet-virtualbox.git apt
+sudo -u puppet git clone git://github.com/soluvas/puppet-virtualbox.git virtualbox
 sudo -u puppet git clone git://github.com/puppetlabs/puppet-apt.git apt
