@@ -1,4 +1,4 @@
- #!/bin/sh
+#!/bin/sh
 if [ "x${USER}" != "xroot" ]; then
   echo Please run this script as root or sudo.
   exit 1
