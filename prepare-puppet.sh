@@ -6,12 +6,12 @@ fi
 
 # Use apt-get since aptitude is not available in Ubuntu minimal VM
 apt-get update
-apt-get install -y ruby1.9.1 augeas-lenses git
-REALLY_GEM_UPDATE_SYTEM gem update --system
-gem install -V puppet
-gem install -V facter
+apt-get install -y ruby1.9.1-full augeas-lenses git
+ln -sv gem1.9.1 /usr/bin/gem
+REALLY_GEM_UPDATE_SYSTEM=1 gem update --system
+gem install -V puppet facter
 
-adduser --system --group --home /etc/puppet --no-create-home --disabled-password puppet
 mkdir -vp /etc/puppet/modules /etc/puppet/manifests
+adduser --system --group --home /etc/puppet --no-create-home --disabled-password puppet
 chown -Rc puppet:puppet /etc/puppet
 chmod -Rc g+sw /etc/puppet
