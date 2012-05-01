@@ -4,6 +4,7 @@ if [ "x${USER}" != "xroot" ]; then
   exit 1
 fi
 
+sudo apt-get install -y git
 cd /etc/puppet/modules
 sudo -u puppet git clone git://github.com/soluvas/puppet-apache.git apache
 sudo -u puppet git clone git://github.com/puppetlabs/puppet-apt.git apt

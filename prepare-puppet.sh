@@ -6,7 +6,7 @@ fi
 
 # Use apt-get since aptitude is not available in Ubuntu minimal VM
 apt-get update
-apt-get install -y ruby1.9.1-dev augeas-lenses libaugeas-dev git build-essential pkg-config
+apt-get install -y ruby1.9.1-dev augeas-lenses libaugeas-dev build-essential pkg-config
 update-alternatives --set gem /usr/bin/gem1.9.1
 REALLY_GEM_UPDATE_SYSTEM=1 gem update --system
 gem install -V puppet facter ruby-augeas
