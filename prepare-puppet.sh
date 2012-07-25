@@ -8,7 +8,7 @@ fi
 apt-get update
 apt-get install -y ruby1.9.1-dev augeas-lenses libaugeas-dev build-essential pkg-config
 update-alternatives --set gem /usr/bin/gem1.9.1
-REALLY_GEM_UPDATE_SYSTEM=1 gem update --system
+REALLY_GEM_UPDATE_SYSTEM=1 gem update -V --system
 gem install -V puppet facter ruby-augeas
 
 mkdir -vp /etc/puppet/modules /etc/puppet/manifests
