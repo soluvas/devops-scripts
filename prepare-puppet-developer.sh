@@ -29,11 +29,11 @@ if [ ! -e "/home/${DEVELOPER}/git/puppet-developer" ]; then
   sudo -u "$DEVELOPER" git clone git@mahameru.unfuddle.com:mahameru/puppet-developer.git \
     "/home/${DEVELOPER}/git/puppet-developer"
 else
-  cd "/home/${DEVELOPER/git/puppet-developer"
+  cd "/home/${DEVELOPER}/git/puppet-developer"
   sudo -u "$DEVELOPER" git pull
 fi
 # Update submodules
-cd "/home/${DEVELOPER/git/puppet-developer"
+cd "/home/${DEVELOPER}/git/puppet-developer"
 sudo -u "$DEVELOPER" git submodule init
 sudo -u "$DEVELOPER" git submodule update
 
