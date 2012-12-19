@@ -26,7 +26,7 @@ adduser "$DEVELOPER" puppet
 
 # Clone or pull puppet-developer
 if [ ! -e "/home/${DEVELOPER}/git/puppet-developer" ]; then
-  sudo -u "$DEVELOPER" git clone git@mahameru.unfuddle.com:mahameru/puppet-developer.git \
+  sudo -u "$DEVELOPER" git clone git@bitbucket.org:bippo/puppet-developer.git \
     "/home/${DEVELOPER}/git/puppet-developer"
 else
   cd "/home/${DEVELOPER}/git/puppet-developer"
