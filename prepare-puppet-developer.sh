@@ -50,6 +50,6 @@ fi
 if [ ! -h /etc/puppet/modules ]; then
   ln -sv "/home/${DEVELOPER}/git/puppet-developer/modules" /etc/puppet/modules
 fi
-if [ ! -h /etc/puppet/manifests/nodes ];
+if [ ! -h /etc/puppet/manifests/nodes ]; then
   ln -sv "/home/${DEVELOPER}/git/puppet-developer/manifests/nodes" /etc/puppet/manifests/nodes
 fi
