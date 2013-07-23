@@ -12,9 +12,11 @@ fi
 # Use apt-get since aptitude is not available in Ubuntu minimal VM
 apt-get update
 apt-get install -y ruby1.9.1-dev augeas-lenses libaugeas-dev build-essential pkg-config git
+apt-get install -y libaugeas-ruby1.9.1
 update-alternatives --set gem /usr/bin/gem1.9.1
 REALLY_GEM_UPDATE_SYSTEM=1 gem update -V --system
-gem install -V puppet facter ruby-augeas
+# ruby-augeas gem not installable on Ubuntu 13.04
+gem install -V puppet facter #ruby-augeas
 
 mkdir -vp /etc/puppet/modules /etc/puppet/manifests
 adduser --system --group --home /etc/puppet --no-create-home --disabled-password puppet
