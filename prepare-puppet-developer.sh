@@ -16,7 +16,7 @@ apt-get install -y libaugeas-ruby1.9.1
 update-alternatives --set gem /usr/bin/gem1.9.1
 REALLY_GEM_UPDATE_SYSTEM=1 gem update -V --system
 # ruby-augeas gem not installable on Ubuntu 13.04
-gem install -V puppet facter #ruby-augeas
+gem install -V --no-ri --no-rdoc puppet facter #ruby-augeas
 
 mkdir -vp /etc/puppet/modules /etc/puppet/manifests
 adduser --system --group --home /etc/puppet --no-create-home --disabled-password puppet
