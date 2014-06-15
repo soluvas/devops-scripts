@@ -11,13 +11,18 @@ fi
 
 # Use apt-get since aptitude is not available in Ubuntu minimal VM
 apt-get update
-apt-get install -y ruby1.9.1-dev augeas-lenses libaugeas-dev build-essential pkg-config git
-apt-get install -y libaugeas-ruby1.9.1
-update-alternatives --set gem /usr/bin/gem1.9.1
-REALLY_GEM_UPDATE_SYSTEM=1 gem update -V --system
-# ruby-augeas gem not installable on Ubuntu 13.04
-gem install -V --no-ri --no-rdoc puppet facter #ruby-augeas
+apt-get install -y git
 
+# I thought Ubuntu's puppet throws: Error: Function 'fail' does not return a value at /etc/puppet/modules/nginx/manifests/init.pp:66 on node sasuke3.bippo.co.id
+# but it's false alarm: That's our bad for not supporting saucy/trusty/etc. yet in nginx module
+aptitude install -y puppet facter ruby-dev ruby-augeas augeas-lenses build-essential pkg-config
+# Workaround for: Error: Hiera terminus not supported without hiera library
+#   at #/etc/puppet/manifests/nodes/sasuke3.bippo.co.id.pp:213 on node sasuke3.bippo.co.id
+aptitude install -y ruby-hiera
+
+REALLY_GEM_UPDATE_SYSTEM=1 gem update -V --system
+
+# setup /etc/puppet
 mkdir -vp /etc/puppet/modules /etc/puppet/manifests
 adduser --system --group --home /etc/puppet --no-create-home --disabled-password puppet
 chown -Rc puppet:puppet /etc/puppet
@@ -37,6 +42,7 @@ fi
 # Update submodules
 cd "/home/${DEVELOPER}/git/puppet-developer"
 sudo -u "$DEVELOPER" git submodule init
+sudo -u "$DEVELOPER" git submodule sync
 sudo -u "$DEVELOPER" git submodule update
 
 # Create boilerplate site.pp
